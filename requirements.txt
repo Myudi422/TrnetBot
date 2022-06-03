@@ -2,7 +2,7 @@ aiohttp
 aria2p==0.9.1
 hachoir
 Pillow
-pyrogram
+pyrogram==1.14.6
 tgcrypto
 youtube_dl
 python-dotenv
