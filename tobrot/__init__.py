@@ -129,6 +129,11 @@ COMPLETE_LIST_COMMAND = os.environ.get("FULL_LIST_COMMAND", "completelist")
 TOGGLE_VID = os.environ.get("TOGGLE_VID", "uploadvid")
 TOGGLE_DOC = os.environ.get("TOGGLE_DOC", "uploaddoc")
 
+#Bot Command [Token Utils]  >>>>>>>>>>>
+UPTOBOX_TOKEN = os.environ.get("UPTOBOX_TOKEN", "")
+EMAIL = os.environ.get("EMAIL", "")
+PWSSD = os.environ.get("PWSSD", "")
+
 BOT_START_TIME = time.time()
 BOT_START_DATETIME = datetime.datetime.now().strftime("%B %d, %Y %I:%M:%S %p")
 # dict to control uploading and downloading
