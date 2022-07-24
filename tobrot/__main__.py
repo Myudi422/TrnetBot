@@ -9,7 +9,7 @@ from pyrogram.handlers import CallbackQueryHandler, MessageHandler
 from sys import executable
 from subprocess import run as srun, check_output
 
-from tobrot import app, bot, dispatcher, __version__
+from tobrot import app, bot, dispatcher
 from tobrot import (
     API_HASH,
     APP_ID,
