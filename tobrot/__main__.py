@@ -2,6 +2,12 @@ import os
 
 from pyrogram import Client, filters
 from pyrogram.handlers import CallbackQueryHandler, MessageHandler
+from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
+from pyrogram import Client, filters, idle
+from pyrogram.raw import functions, types
+from pyrogram.handlers import CallbackQueryHandler, MessageHandler
+from sys import executable
+from subprocess import run as srun, check_output
 
 from tobrot import (
     API_HASH,
