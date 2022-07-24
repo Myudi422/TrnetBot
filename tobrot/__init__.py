@@ -174,3 +174,17 @@ def multi_rclone_init():
 
 
 multi_rclone_init()
+
+def is_gdtot_link(url: str): 
+    url = re.match(r'https?://.+\.gdtot\.\S+', url) 
+    return bool(url)
+
+
+def is_hubdrive_link(url: str): 
+    url = re.match(r'https?://hubdrive\.\S+', url) 
+    return bool(url)
+
+
+def is_appdrive_link(url: str): 
+    url = re.match(r'https?://appdrive\.\S+', url) 
+    return bool(url)
