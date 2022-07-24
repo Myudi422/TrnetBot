@@ -157,6 +157,9 @@ telegraph = Telegraph()
 telegraph.create_account(short_name=sname)
 telegraph_token = telegraph.get_access_token()
 
+UPDATES_CHANNEL = os.environ.get("UPDATES_CHANNEL", "")
+LOG_FILE_NAME = f"{UPDATES_CHANNEL}Logs.txt"
+
 TELEGRAPHLIMIT = 50
 
 
@@ -175,16 +178,4 @@ def multi_rclone_init():
 
 multi_rclone_init()
 
-def is_gdtot_link(url: str): 
-    url = re.match(r'https?://.+\.gdtot\.\S+', url) 
-    return bool(url)
 
-
-def is_hubdrive_link(url: str): 
-    url = re.match(r'https?://hubdrive\.\S+', url) 
-    return bool(url)
-
-
-def is_appdrive_link(url: str): 
-    url = re.match(r'https?://appdrive\.\S+', url) 
-    return bool(url)
