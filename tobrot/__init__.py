@@ -129,20 +129,6 @@ COMPLETE_LIST_COMMAND = os.environ.get("FULL_LIST_COMMAND", "completelist")
 TOGGLE_VID = os.environ.get("TOGGLE_VID", "uploadvid")
 TOGGLE_DOC = os.environ.get("TOGGLE_DOC", "uploaddoc")
 
-#Bot Command [Token Utils]  >>>>>>>>>>>
-UPTOBOX_TOKEN = os.environ.get("UPTOBOX_TOKEN", "")
-EMAIL = os.environ.get("EMAIL", "")
-PWSSD = os.environ.get("PWSSD", "")
-GDRIVE_FOLDER_ID = os.environ.get("GDRIVE_FOLDER_ID", "")
-CRYPT = os.environ.get("CRYPT", "")
-#PHPSESSID = os.environ.get("PHPSESSID", "")
-HUB_CRYPT = os.environ.get("HUB_CRYPT", "")
-DRIVEFIRE_CRYPT = os.environ.get("DRIVEFIRE_CRYPT", "")
-KATDRIVE_CRYPT = os.environ.get("KATDRIVE_CRYPT", "")
-KOLOP_CRYPT = os.environ.get("KOLOP_CRYPT", "")
-DRIVEBUZZ_CRYPT = os.environ.get("DRIVEBUZZ_CRYPT", "")
-GADRIVE_CRYPT = os.environ.get("GADRIVE_CRYPT", "")
-
 BOT_START_TIME = time.time()
 BOT_START_DATETIME = datetime.datetime.now().strftime("%B %d, %Y %I:%M:%S %p")
 # dict to control uploading and downloading
@@ -156,9 +142,6 @@ sname = "".join(random.SystemRandom().choices(string.ascii_letters, k=8))
 telegraph = Telegraph()
 telegraph.create_account(short_name=sname)
 telegraph_token = telegraph.get_access_token()
-
-UPDATES_CHANNEL = os.environ.get("UPDATES_CHANNEL", "")
-LOG_FILE_NAME = f"{UPDATES_CHANNEL}Logs.txt"
 
 TELEGRAPHLIMIT = 50
 
@@ -177,5 +160,3 @@ def multi_rclone_init():
 
 
 multi_rclone_init()
-
-
