@@ -42,6 +42,8 @@ from tobrot import (
 )
 from tobrot.helper_funcs.download import down_load_media_f
 from tobrot.helper_funcs.help_func import help_message_f
+from tobrot.plugins.torrent_search import searchhelp, sendMessage 
+
 from tobrot.plugins.call_back_button_handler import button
 
 # the logging things
@@ -260,5 +262,12 @@ if __name__ == "__main__":
         & filters.chat(chats=AUTH_CHANNEL),
     )
     app.add_handler(full_list_message_handler)
+    #
+    searchhelp_handler = MessageHandler(
+        searchhelp,
+        filters=filters.command([f"{TSEARCH_COMMAND}", f"{TSEARCH_COMMAND}@{bot.username}"])
+        & filters.chat(chats=AUTH_CHANNEL),
+    )
+    app.add_handler(searchhelp_handler)
     #
     app.run()
