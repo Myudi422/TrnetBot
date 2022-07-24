@@ -56,7 +56,6 @@ APP_ID = int(os.environ.get("APP_ID", ""))
 API_HASH = os.environ.get("API_HASH", "")
 OWNER_ID = int(os.environ.get("OWNER_ID", ""))
 
-app = Client("LeechBot", bot_token=TG_BOT_TOKEN, api_id=APP_ID, api_hash=API_HASH, workers=343)
 
 # Get these values from my.telegram.org
 # to store the channel ID who are authorized to use the bot
