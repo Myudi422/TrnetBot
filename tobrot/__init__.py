@@ -9,6 +9,12 @@ from collections import defaultdict
 from sys import exit
 from telegraph import Telegraph
 import dotenv
+import asyncio
+import telegram.ext as tg
+
+from subprocess import run
+from pyrogram import Client
+
 
 if os.path.exists("TorrentLeech.txt"):
     with open("TorrentLeech.txt", "r+") as f_d:
@@ -50,6 +56,8 @@ APP_ID = int(os.environ.get("APP_ID", ""))
 API_HASH = os.environ.get("API_HASH", "")
 OWNER_ID = int(os.environ.get("OWNER_ID", ""))
 
+app = Client("LeechBot", bot_token=TG_BOT_TOKEN, api_id=APP_ID, api_hash=API_HASH, workers=343)
+
 # Get these values from my.telegram.org
 # to store the channel ID who are authorized to use the bot
 # Authorised Chat Functions >>>>>>>>>>>
@@ -78,6 +86,7 @@ MAX_MESSAGE_LENGTH = 4096
 # set timeout for subprocess
 PROCESS_MAX_TIMEOUT = 3600
 #
+
 SP_LIT_ALGO_RITH_M = os.environ.get("SP_LIT_ALGO_RITH_M", "hjs")
 ARIA_TWO_STARTED_PORT = int(os.environ.get("ARIA_TWO_STARTED_PORT", "6800"))
 EDIT_SLEEP_TIME_OUT = int(os.environ.get("EDIT_SLEEP_TIME_OUT", "5"))
@@ -142,6 +151,8 @@ sname = "".join(random.SystemRandom().choices(string.ascii_letters, k=8))
 telegraph = Telegraph()
 telegraph.create_account(short_name=sname)
 telegraph_token = telegraph.get_access_token()
+
+
 
 TELEGRAPHLIMIT = 50
 
