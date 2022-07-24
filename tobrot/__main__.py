@@ -2,14 +2,7 @@ import os
 
 from pyrogram import Client, filters
 from pyrogram.handlers import CallbackQueryHandler, MessageHandler
-from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
-from pyrogram import Client, filters, idle
-from pyrogram.raw import functions, types
-from pyrogram.handlers import CallbackQueryHandler, MessageHandler
-from sys import executable
-from subprocess import run as srun, check_output
 
-from tobrot import app, bot, dispatcher
 from tobrot import (
     API_HASH,
     APP_ID,
@@ -49,8 +42,6 @@ from tobrot import (
 )
 from tobrot.helper_funcs.download import down_load_media_f
 from tobrot.helper_funcs.help_func import help_message_f
-from tobrot.plugins.torrent_search import searchhelp, sendMessage 
-
 from tobrot.plugins.call_back_button_handler import button
 
 # the logging things
@@ -211,7 +202,7 @@ if __name__ == "__main__":
     )
     app.add_handler(upload_log_handler)
     #
-    start_cmd_handler = MessageHandler(start_fn, filters=filters.command(["start"]))
+    start_cmd_handler = MessageHandler(start_fn, filters=filters.command(["mulai"]))
     app.add_handler(start_cmd_handler)
     #
     call_back_button_handler = CallbackQueryHandler(button)
@@ -269,12 +260,5 @@ if __name__ == "__main__":
         & filters.chat(chats=AUTH_CHANNEL),
     )
     app.add_handler(full_list_message_handler)
-    #
-    searchhelp_handler = MessageHandler(
-        searchhelp,
-        filters=filters.command([f"{TSEARCH_COMMAND}", f"{TSEARCH_COMMAND}@{bot.username}"])
-        & filters.chat(chats=AUTH_CHANNEL),
-    )
-    app.add_handler(searchhelp_handler)
     #
     app.run()

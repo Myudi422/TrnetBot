@@ -9,12 +9,6 @@ from collections import defaultdict
 from sys import exit
 from telegraph import Telegraph
 import dotenv
-import asyncio
-import telegram.ext as tg
-
-from subprocess import run
-from pyrogram import Client
-
 
 if os.path.exists("TorrentLeech.txt"):
     with open("TorrentLeech.txt", "r+") as f_d:
@@ -56,10 +50,9 @@ APP_ID = int(os.environ.get("APP_ID", ""))
 API_HASH = os.environ.get("API_HASH", "")
 OWNER_ID = int(os.environ.get("OWNER_ID", ""))
 
-
 # Get these values from my.telegram.org
 # to store the channel ID who are authorized to use the bot
-# Authorised Chat Functions >>>>>>>>>>>
+
 AUTH_CHANNEL = [int(x) for x in os.environ.get("AUTH_CHANNEL", "").split()]
 SUDO_USERS = [int(sudos) if (' ' not in os.environ.get('SUDO_USERS', '')) else int(sudos) for sudos in os.environ.get('SUDO_USERS', '').split()]
 AUTH_CHANNEL.append(OWNER_ID)
@@ -85,7 +78,6 @@ MAX_MESSAGE_LENGTH = 4096
 # set timeout for subprocess
 PROCESS_MAX_TIMEOUT = 3600
 #
-
 SP_LIT_ALGO_RITH_M = os.environ.get("SP_LIT_ALGO_RITH_M", "hjs")
 ARIA_TWO_STARTED_PORT = int(os.environ.get("ARIA_TWO_STARTED_PORT", "6800"))
 EDIT_SLEEP_TIME_OUT = int(os.environ.get("EDIT_SLEEP_TIME_OUT", "5"))
@@ -119,7 +111,6 @@ GET_SIZE_G = os.environ.get("GET_SIZE_G", "getsize")
 STATUS_COMMAND = os.environ.get("STATUS_COMMAND", "status")
 STATS_COMMAND = os.environ.get("STATS_COMMAND", "stats")
 HELP_COMMAND = os.environ.get("HELP_COMMAND", "help")
-TSEARCH_COMMAND = os.environ.get("TSEARCH_COMMAND", "tshelp")
 SAVE_THUMBNAIL = os.environ.get("SAVE_THUMBNAIL", "savethumbnail")
 CLEAR_THUMBNAIL = os.environ.get("CLEAR_THUMBNAIL", "clearthumbnail")
 UPLOAD_AS_DOC = os.environ.get("UPLOAD_AS_DOC", "False")
@@ -151,8 +142,6 @@ telegraph = Telegraph()
 telegraph.create_account(short_name=sname)
 telegraph_token = telegraph.get_access_token()
 
-
-
 TELEGRAPHLIMIT = 50
 
 
@@ -170,9 +159,3 @@ def multi_rclone_init():
 
 
 multi_rclone_init()
-
-# Pyrogram Client Intialization >>>>>>>>>>>
-app = Client("LeechBot", bot_token=TG_BOT_TOKEN, api_id=APP_ID, api_hash=API_HASH, workers=343)
-updater = tg.Updater(token=TG_BOT_TOKEN)
-bot = updater.bot
-dispatcher = updater.dispatcher
